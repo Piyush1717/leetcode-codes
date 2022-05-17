@@ -142,7 +142,7 @@ class Tree
             int size=q.size();
             while(size-->0)
             {
-                Node curr=q.poll();
+                Node curr=q.remove();
                 st.push(curr.data);
                 
                 if(curr.right!=null)
