@@ -21,13 +21,15 @@ class Solution {
             return new TreeNode(val);
         }
         
-        if(root.val>val)
+        if(val>root.val)
+        {
+            root.right=insertIntoBST(root.right,val);
+        }
+        
+        
+        if(val<root.val)
         {
             root.left=insertIntoBST(root.left,val);
-        }
-        else if(root.val<val)
-        {
-                   root.right=insertIntoBST(root.right,val);
         }
         
         return root;
