@@ -132,7 +132,7 @@ class Tree
     //Function to check whether a binary tree is balanced or not.
     boolean isBalanced(Node root)
     {
-   return helper(root)!=-1;
+   return helper(root)==-1?false:true;
     }
     
     public int helper(Node node)
