@@ -14,16 +14,16 @@
  * }
  */
 class Solution {
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-       HashMap<Integer, Integer> hm=new HashMap<>();
-        for(int i=0;i<inorder.length;i++)
-        {
-            int value=inorder[i];
-            hm.put(value,i);
-        }
-        
-        TreeNode node=construct(0,preorder.length-1,0,inorder.length-1,preorder,hm);
-        return node;
+     public TreeNode buildTree(int[] preorder, int[] inorder) {
+     HashMap<Integer, Integer> hm=new HashMap<>();
+         for(int i=0;i<inorder.length;i++)
+         {
+             int val=inorder[i];
+             hm.put(val,i);
+         }
+          TreeNode ans= construct(0,preorder.length-1,0,inorder.length-1,preorder,hm);
+return ans;
+         
     }
     
     public TreeNode construct(int prelo,int prehi, int inlo, int inhi, int [] preorder,HashMap<Integer, Integer> hm)
@@ -33,24 +33,17 @@ class Solution {
             return null;
         }
         
-        TreeNode node=new TreeNode();
-        int idx=hm.get(preorder[prelo]);
+        TreeNode root=new TreeNode();
+        root.val=preorder[prelo];
         
-        node.val=preorder[prelo];
+        int index=hm.get(preorder[prelo]);
+        int lhs=index-inlo;
         
-        int lhs=idx-inlo;
+        root.left=construct(prelo+1,prelo+lhs,inlo,index-1,preorder,hm);
         
-        
-        node.left=construct(prelo+1,prelo+lhs,inlo,idx-1,preorder,hm);
-            
-            node.right=construct(prelo+lhs+1,prehi,idx+1,inhi,preorder,hm);
-        
-        return node;
-        
-        
+         root.right=construct(prelo+lhs+1,prehi,index+1,inhi,preorder,hm);
+
+        return root;
         
     }
-    
-    
 }
-
