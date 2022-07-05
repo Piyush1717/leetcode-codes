@@ -132,7 +132,7 @@ class Solution
         }
         else
         {
-            return;
+            minD=0;
         }
         
         
