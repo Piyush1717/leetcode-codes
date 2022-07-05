@@ -37,7 +37,7 @@ class Solution{
             
             for(int j=0;j<graph[0].length;j++)
             {
-                if(i!=j && graph[i][j]==1)
+                if( graph[i][j]==1)
                 {
                     num++;
                 }
