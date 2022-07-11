@@ -28,14 +28,16 @@ class Solution {
             return 0;
         }
         
-        helper(root.left,(val*10)+root.val);
-        helper(root.right,(val*10)+root.val);
-        
         if(root.left==null && root.right==null)
         {
             int num=(val*10)+root.val;
             sum+=num;
         }
+        
+          helper(root.left,(val*10)+root.val);
+        helper(root.right,(val*10)+root.val);
+        
+        
         
         return sum;
     }
