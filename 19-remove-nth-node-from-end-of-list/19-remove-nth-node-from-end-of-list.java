@@ -25,10 +25,7 @@ class Solution {
             return head;
         }
         
-        if(count==1)
-        {
-            return null;
-        }
+     
     
     	int N=count-n;
     	ListNode ans=head;
