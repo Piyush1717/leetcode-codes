@@ -1,34 +1,38 @@
 class Solution {
     public int lengthOfLIS(int[] A) {
-        int N=A.length;
+   
+        int [] lis=new int[A.length];
+        lis[0]=1;
         
-        int [] dp=new int [A.length+1];
-        
-        Arrays.fill(dp,1);
-        
-        
-        for(int i=1;i<N;i++)
+        for(int i=1;i<A.length;i++)
         {
+            int max=0;
+            
             for(int j=0;j<i;j++)
             {
-                if(A[i]>A[j])
+                if(A[j]<A[i])
                 {
-                    dp[i]=Math.max(dp[i],dp[j]+1);
+                    max=Math.max(max,lis[j]);
+                    
                 }
-                
                 
             }
             
+            lis[i]=max+1;
+            
+            
         }
         
-        int ans=0;
         
-        for(int i=0;i<N;i++)
+        int len=0;
+        for(int ele: lis)
         {
-            ans=Math.max(ans,dp[i]);
+            len=Math.max(len,ele);
         }
         
-        return ans;
+        return len;
+        
+        
         
     }
 }
