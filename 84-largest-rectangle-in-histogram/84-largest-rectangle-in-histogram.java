@@ -1,74 +1,70 @@
 class Solution {
     public int largestRectangleArea(int[] heights) {
-        int n=heights.length;
-        int [] right=new int [n];
         
-        Stack<Integer> st=new Stack();
-        st.push(n-1);
-        right[n-1]=n;
-        
-        for(int i=n-2;i>=0;i--)
-        {
-            while(st.size()>0 && heights[i]<=heights[st.peek()])
-            {
-                st.pop();
-            }
-            
-            if(st.size()==0)
-            {
-                right[i]=n;
-            }
-            else
-            {
-                right[i]=st.peek();
-            }
-            
-            st.push(i);
-        }
-        
-        
-         int [] left=new int [n];
-        
-         st=new Stack();
-        st.push(0);
-        left[0]=-1;
-        
-        for(int i=1;i<=n-1;i++)
-        {
-            while(st.size()>0 && heights[i]<heights[st.peek()])
-            {
-                st.pop();
-            }
-            
-            if(st.size()==0)
-            {
-                left[i]= -1;
-            }
-            else
-            {
-                left[i]=st.peek();
-            }
-            
-            st.push(i);
-        }
+        int [] left=nextSmallerToLeft(heights);
+          int [] right=nextSmallerToRight(heights);
         
         int max=0;
         
-        for(int i=0;i<n;i++)
+        for(int i=0;i<left.length;i++)
         {
-            int width=right[i]-left[i]-1;
-            int area=width*heights[i];
-            
-            if(area>max)
+            max=Math.max(max, heights[i] * (right[i]-left[i]-1));
+        }
+        
+        return max;
+    }
+    
+    public int [] nextSmallerToRight(int [] arr)
+    {
+        
+        
+        int [] ans=new int[arr.length];
+        
+        Arrays.fill(ans,arr.length);
+        
+        Stack<Integer> st=new Stack<>();
+        
+        for(int i=0;i<arr.length;i++)
+        {
+            while(st.size()>0 && arr[st.peek()]>arr[i])
             {
-                max=area;
+                ans[st.peek()]=i;
+                st.pop();
             }
             
+            st.push(i);            
         }
         
         
-        
-        return max;
+        return ans;
         
     }
+    
+    
+    
+    public int [] nextSmallerToLeft(int [] arr)
+    {
+        int [] ans=new int[arr.length];
+        Stack<Integer> st=new Stack<>();
+        
+        Arrays.fill(ans,-1);
+        
+        for(int i=arr.length-1;i>=0;i--)
+        {
+            while(st.size()>0 && arr[st.peek()]>arr[i])
+            {
+                ans[st.peek()]=i;
+                st.pop();
+            }
+            
+            st.push(i);            
+        }
+        
+        
+        return ans;
+        
+    }
+    
+    
+    
 }
