@@ -1,13 +1,12 @@
 class Solution {
     public int countSubstrings(String s) {
         
-        int count=0;
+       int count=0;
         boolean [][] dp=new boolean[s.length()][s.length()];
         
-        for(int gap=0;gap<s.length();gap++)
+        for(int gap=0;gap<dp[0].length;gap++)
         {
-            
-            for(int i=0,j=gap;j<s.length();i++,j++)
+            for(int i=0,j=gap;j<dp[0].length;i++,j++)
             {
                 if(gap==0)
                 {
@@ -35,7 +34,6 @@ class Solution {
                     {
                         dp[i][j]=false;
                     }
-                    
                 }
                 
                 if(dp[i][j]==true)
@@ -43,14 +41,10 @@ class Solution {
                     count++;
                 }
                 
-                
             }
             
-            
-            
-            
         }
-        
         return count;
+        
     }
 }
