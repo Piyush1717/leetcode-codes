@@ -42,7 +42,7 @@ class Solution {
         
         while(low<=hi)
         {
-            int mid=low+(hi-low)/2;
+            int mid=(hi+low)/2;
             
             if(helper(mid,k,stalls))
             {
