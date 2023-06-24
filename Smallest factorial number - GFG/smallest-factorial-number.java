@@ -38,13 +38,13 @@ class Solution
         int low=0;
         int hi=5*n;
         
-        while(low<hi)
+        while(low<=hi)
         {
             int mid=low+(hi-low)/2;
             
             if(helper(mid,n)==true)
             {
-                hi=mid;
+                hi=mid-1;
             }
             else
             {
