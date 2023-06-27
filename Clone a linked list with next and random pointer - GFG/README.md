@@ -1,14 +1,16 @@
 # Clone a linked list with next and random pointer
 ## Hard
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">You are given a special&nbsp;linked list&nbsp;with&nbsp;<strong>N </strong>nodes where each node has a&nbsp;next pointer pointing to its&nbsp;next node. You are also given&nbsp;<strong>M</strong>&nbsp;random pointers, where you will be given <strong>M </strong>number of pairs denoting two nodes <strong>a</strong> and <strong>b</strong>&nbsp;&nbsp;<strong>i.e.&nbsp;</strong></span><strong><span style="font-size:18px">a-&gt;arb = b.</span></strong></p>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">You are given a special&nbsp;linked list&nbsp;with&nbsp;<strong>N </strong>nodes where each node has a&nbsp;next pointer pointing to its&nbsp;next node. You are also given&nbsp;<strong>M</strong>&nbsp;random pointers, where you will be given <strong>M </strong>number of pairs denoting two nodes <strong>a</strong> and <strong>b</strong>&nbsp;&nbsp;<strong>i.e.&nbsp;</strong></span><strong><span style="font-size:18px">a-&gt;arb = b </span></strong><span style="font-size:18px">(arb is pointer to random node)<strong>.</strong></span></p>
 
 <p><span style="font-size:18px">Construct a copy of the given list. The copy should consist of exactly <strong>N</strong>&nbsp;new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list.</span></p>
 
-<p><span style="font-size:18px">For example, if there are two nodes <strong>X</strong> and <strong>Y</strong> in the original list, where <strong>X.random</strong> <strong>--&gt;</strong> <strong>Y</strong>, then for the corresponding two nodes <strong>x</strong> and <strong>y</strong> in the copied list, <strong>x.random --&gt; y.</strong></span></p>
+<p><span style="font-size:18px">For example, if there are two nodes <strong>X</strong> and <strong>Y</strong> in the original list, where <strong>X.arb</strong> <strong>--&gt;</strong> <strong>Y</strong>, then for the corresponding two nodes <strong>x</strong> and <strong>y</strong> in the copied list, <strong>x.arb --&gt; y.</strong></span></p>
 
 <p><span style="font-size:18px">Return the head of the copied linked list.</span></p>
 
 <p><span style="font-size:18px"><img alt="ArbitLinked List1" class="aligncenter size-full wp-image-1254" src="https://contribute.geeksforgeeks.org/wp-content/uploads/clone.jpg" style="height:160px; width:450px" title="ArbitLinked List1"></span></p>
+
+<p><span style="font-size:18px"><strong>Note</strong> :- The diagram isn't part of any example, it just depicts an example of how the linked list may look like.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
@@ -47,7 +49,8 @@ The task is to complete the function <strong>copyList</strong>() which takes one
 
 <p><span style="font-size:18px"><strong>NOTE :&nbsp;</strong><br>
 1. If there is any node whose arbitrary pointer is not given then it's by default NULL.&nbsp;<br>
-2. Your solution return an output <strong>1</strong> if your clone linked list is correct, else it returns <strong>0</strong>.</span></p>
+2. Your solution return an output <strong>1</strong> if your clone linked list is correct, else it returns <strong>0</strong>.<br>
+3. Don't make any changes to the original linked list.</span></p>
 
 <p><span style="font-size:18px"><strong>Expected Time Complexity</strong> : O(n)<br>
 <strong>Expected Auxilliary Space </strong>: O(1)</span></p>
