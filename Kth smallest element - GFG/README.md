@@ -1,7 +1,8 @@
 # Kth smallest element
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array <strong>arr[]</strong> and an integer&nbsp;<strong>K</strong> where K is smaller than size of array, the task is to find the <strong>K<sup>th</sup> smallest</strong> element in the given array. It is given that all array elements are distinct.</span></p>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array <strong>arr[]</strong> and an integer&nbsp;<strong>K</strong> where K is smaller than size of array, the task is to find the <strong>K<sup>th</sup> smallest</strong> element in the given array. It is given that all array elements are distinct.</span></p>
+
+<p><span style="font-size:18px"><strong>Note</strong> :-&nbsp;&nbsp;<strong>l</strong>&nbsp;and&nbsp;<strong>r</strong>&nbsp;denotes the&nbsp;<strong>starting</strong>&nbsp;and&nbsp;<strong>ending</strong>&nbsp;index of the array.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
@@ -42,5 +43,4 @@ You don't have to read input or print anything. Your task is to complete the fun
 1 &lt;= arr[i] &lt;= 10<sup>5</sup><br>
 1 &lt;= K &lt;= N</span><br>
 &nbsp;</p>
- <p></p>
-            </div>
+</div>
