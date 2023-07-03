@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for Java
 
 /*package whatever //do not write package name here */
@@ -27,6 +27,7 @@ class GFG {
 		out.flush();
 	}
 }
+
 // } Driver Code Ends
 
 
@@ -35,7 +36,26 @@ class GFG {
 class Solution{
     public static int kthSmallest(int[] arr, int l, int r, int k) 
     { 
-        Arrays.sort(arr);
-        return arr[k-1];
+        //Your code here
+        
+          PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+   
+        for(int i=0;i<k;i++)
+        {
+            pq.add(arr[i]);
+        }
+        
+        for(int i=k;i<arr.length;i++)
+        {
+            if(arr[i]<pq.peek())
+            {
+                pq.remove();
+                pq.add(arr[i]);
+            }
+        }
+  
+        
+        
+        return pq.peek();
     } 
 }
