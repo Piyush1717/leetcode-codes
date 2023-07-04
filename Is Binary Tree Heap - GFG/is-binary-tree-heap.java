@@ -138,17 +138,7 @@ class Solution {
         {
             return true;
         }
-        else if(root.right==null)
-        {
-            if(root.data<root.left.data)
-            {
-                return false;
-            }
-            else
-            {
-            return true;            
-            }
-        }
+  
         
         if(root.left!=null)
         {
