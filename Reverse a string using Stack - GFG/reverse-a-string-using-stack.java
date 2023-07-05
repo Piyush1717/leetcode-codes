@@ -32,7 +32,7 @@ class Solution {
         
         StringBuilder sb=new StringBuilder();
         
-        while(st.size()>0)
+        while(st.isEmpty()==false)
         {
             sb.append(st.pop());
         }
