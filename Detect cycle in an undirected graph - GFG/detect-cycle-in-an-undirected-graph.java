@@ -34,69 +34,53 @@ class GFG {
 
 class Solution {
     // Function to detect cycle in an undirected graph.
-    
-    public class pair{
-        
-        int x;
-        int y;
-        
-        pair(int x, int y)
-        {
-            this.x=x;
-            this.y=y;
-        }
-    }
-    
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
+        
         boolean [] vis=new boolean[V];
         
         for(int i=0;i<V;i++)
         {
             if(vis[i]==false)
             {
-                boolean ans=bfs(i, V , adj, vis);
+                boolean ans=isCyclic(i,V,adj,vis);
                 if(ans==true)
                 {
                     return true;
                 }
+                
             }
             
-            
         }
-        return false;
-    }
-    
-    public boolean bfs(int i , int V,ArrayList<ArrayList<Integer>> adj, boolean [] vis )
-    {
-        vis[i]=true;
-        ArrayDeque<pair> q=new ArrayDeque<>();
-        pair node=new pair(i,-1);
-        q.add(node);
+ return false;
         
-        while(q.size()>0)
+    }
+
+
+        public boolean isCyclic(int i, int V,ArrayList<ArrayList<Integer>> adj, boolean [] vis )
+{
+Queue<Integer> q=new LinkedList<>();
+q.add(i);
+       while(q.size()>0)
         {
-            pair rem=q.poll();
-            int n=rem.x;
-            int parent=rem.y;
+            int rem=q.poll();
             
-            for(int ele: adj.get(n))
+            if(vis[rem]==true)
+            {
+                return true;
+            }
+            
+            vis[rem]=true;
+            
+            for(int ele: adj.get(rem))
             {
                 if(vis[ele]==false)
                 {
-                    vis[ele]=true;
-                    q.add(new pair(ele,n));
-                }
-                else if(parent!=ele)
-                {
-                    return true;
+                    q.add(ele);
                 }
             }
         }
         
         return false;
-    }
-    
-    
-    
+}
 }
