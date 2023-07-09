@@ -36,12 +36,11 @@ class GFG {
 
 class Solution {
 
- StringBuilder sb=new StringBuilder();
     int countDistinctIslands(int[][] grid) {
         // Your Code here
         HashSet<String> set=new HashSet<>();
         
-       
+       StringBuilder sb=new StringBuilder();
         
         for(int i=0;i<grid.length;i++)
         {
