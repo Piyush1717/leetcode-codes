@@ -52,7 +52,7 @@ class Solution {
         
         for(int i=0;i<n;i++)
         {
-            dist[i]=(int)(1e9);
+            dist[i]=Integer.MAX_VALUE;
         }
         dist[src]=0;
         
@@ -76,7 +76,7 @@ class Solution {
         
         for(int i=0;i<dist.length;i++)
         {
-            if(dist[i]==(int)(1e9))
+            if(dist[i]==Integer.MAX_VALUE)
             {
                 dist[i]=-1;
             }
