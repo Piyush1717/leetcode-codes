@@ -38,6 +38,8 @@ class Solution
     {
         //Your code here
         
+        Queue<Character> q=new LinkedList<>();
+        
         HashMap<Character, Integer> map=new HashMap<>();
         
         for(int i=0;i<s.length();i++)
@@ -45,17 +47,21 @@ class Solution
             char ch=s.charAt(i);
             
             map.put(ch, map.getOrDefault(ch,0)+1);
+            
+            q.add(ch);
         }
         
-        for(int i=0;i<s.length();i++)
+        while(q.size()>0)
         {
-            char ch=s.charAt(i);
+            char ch=q.poll();
             
             if(map.get(ch)==1)
             {
                 return ch;
             }
         }
+        
+        
         
         return '$';
         
