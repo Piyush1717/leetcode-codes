@@ -45,13 +45,12 @@ class Solution{
     {
         // code here
         
-        HashMap<Integer, Integer> hm=new HashMap<>();
+     int [] freq=new int[P+1];
         
         for(int i=0;i<n;i++)
         {
             int val=arr[i];
-            
-            hm.put(val,hm.getOrDefault(val,0)+1);
+        freq[val]++;
         }
         
         
@@ -59,15 +58,16 @@ class Solution{
         {
             int digit=i+1;
             
-            if(hm.containsKey(digit))
+            if(digit<=P)
             {
-             arr[i]=hm.get(digit);   
-                
+            arr[i]=freq[digit];    
             }
             else
             {
                 arr[i]=0;
             }
+            
+            
         }
         
         
