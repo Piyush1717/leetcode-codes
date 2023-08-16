@@ -117,8 +117,7 @@ class Solution
                 Node temp=new Node(head1.data);
                 curr.next=temp;
                 curr=curr.next;
-                
-                set.remove(head1.data);
+          
                 
             }
             head1=head1.next;
