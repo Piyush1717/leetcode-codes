@@ -127,46 +127,54 @@ class GfG
 	    return root;
 	}
 	
-	Node nex=flatten(root.next);
+	root.next=flatten(root.next);
 	
-	root=merge(root, nex);
+	Node head=merge(root,root.next);
 	
-	return root;
+	return head;
 	
     }
     
     public Node merge(Node a, Node b )
     {
-        Node res=new Node(0);
-        Node temp=res;
+        Node dummy=new Node(0);
+        Node curr=dummy;
         
         while(a!=null && b!=null)
         {
             if(a.data<b.data)
             {
-                temp.bottom=a;
+                curr.bottom=a;
                 a=a.bottom;
-                temp=temp.bottom;
-                
+                curr=curr.bottom;
             }
             else
             {
-                temp.bottom=b;
+                curr.bottom=b;
                 b=b.bottom;
-                temp=temp.bottom;
+                curr=curr.bottom;
             }
         }
         
         if(a!=null)
         {
-            temp.bottom=a;
-        }
-        else
-        {
-            temp.bottom=b;
+            curr.bottom=a;
         }
         
-        return res.bottom;
+        
+        if(b!=null)
+        {
+            curr.bottom=b;
+        }
+        
+        return dummy.bottom;
+        
+        
+        
+        
+        
     }
+    
+    
     
 }
