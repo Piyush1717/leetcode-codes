@@ -28,40 +28,30 @@ class GFG {
 //User function Template for Java
 
 class Solution {
-    static int canReach(int[] A, int N) {
+    static int canReach(int[] arr, int n) {
         // code here
-        
-        
-    boolean ans= helper(0,A,N);
-        
-        if(ans==true)
-        {
-            return 1;
-        }
-        
-        return 0;
-        
+  
+  int idx=n-1;
+  
+  for(int i=n-1;i>=0;i--)
+  {
+      if(arr[i]+i>=idx)
+      {
+          idx=i;
+      }
+      
+      
+  }
+  
+  if(idx==0)
+  {
+      return 1;
+  }
+  
+  return 0;
+  
+  
     }
-    
-    public static boolean helper(int idx,int [] A, int n)
-    {
-        if(idx==n-1)
-        {
-            return true;
-        }
-        
-        for(int jump=1;jump+idx<n && jump<=A[idx];jump++)
-        {
-            boolean ans= helper(idx+jump,A,n);
-            if(ans==true)
-            {
-                return true;
-            }
-        }
-        
-        return false;
-        
-        
-    }
+
     
 };
